@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs') %>
+
+    <h1>Share your adventures, experiences down below!</h1>
+
+    <a href="/create">Share your story!</a>
+
+    <!--Here show 3 cards in with image -->
+    <div class="flex justify-center spacing">
+        <% if (locals.blogPostsMem) { %>
+            <% blogPostsMem.forEach((post)=> {%>
+                <div class="intro-card">
+                    <h3>
+                        <%= post.title %>
+                    </h3>
+                    <div>
+                        <%= post.text %>
+                    </div>
+                </div>
+                <% })}%>
+    </div>
+
+    <!-- Show some more stories -->
+    <h2>See all posts here!</h2>
+    <div class="flex justify-center align-center f-col spacing">
+        <% if (locals.blogPostsMem) { %>
+        <% blogPostsMem.forEach(element => { %>
+            <h3>
+                <%= element.title %>
+            </h3>
+            <div>
+                <%= element.text %>
+            </div>
+            <a href="/edit/<%=element.id%>">Edit</a>
+            <form method="post" action="/delete/<%=element.id%>">
+                <input type="submit" value="Delete">
+            </form>
+        <%});}%>
+    </div>
+     <%- include('partials/footer.ejs') %>
