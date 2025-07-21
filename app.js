@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 //Routes
 app.get("/", (req, res) => {
 
-  res.render("index.ejs", { blogPostsMem: blogPostsMem });
+  res.render("index.ejs", { blogPostsMem: [...blogPostsMem].reverse(),  //This way the original stays unchanged. 
+    topPostsBlog: blogPostsMem.slice(-3)
+  });
 });
 
 app.get("/create", (req, res) => {
@@ -49,7 +51,7 @@ app.post("/upload", (req, res) => {
     res.redirect("/"); // Go to the home page showing the Story added on top.
 });
 
-app.get("/edit/:id", (req, res) => {
+app.post("/edit/:id", (req, res) => {
   let idBlog = req.params.id;
 
   let postEdit = blogPostsMem.filter((e) => {
@@ -68,6 +70,14 @@ app.post('/delete/:id', (req, res) => {
 
     res.render('index.ejs', {blogPostsMem: blogPostsMem});
 })
+
+app.get('/blog/:id', (req, res) => {
+    let blogId = req.params.id;
+
+    let blogPost = blogPostsMem.filter(b => String(b.id) === String(blogId))
+
+    res.render('blogPost.ejs', {blogPost: blogPost[0]});
+});
 
 app.listen(port, () => {
   console.log(`The app is being served at port ${port}`);

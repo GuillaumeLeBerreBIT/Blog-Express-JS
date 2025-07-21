@@ -1,18 +1,230 @@
+body {
+  background-color: #f9f3ef;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+img {
+    max-width: 300px;
+}
+
+.intro-card { 
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 40px -14px;
+  max-width: 300px;
+  padding: 24px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  img {
+    width: calc(100% + 20px);
+    margin-top: -24px;
+    margin-left: -10px;
+    margin-right: -10px;
+
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.card-list {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 40px -14px;
+  width: 90%;
+  height: 200px;
+  padding: 24px 10px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+
+  img {
+    height: calc(100% + 48px);
+    margin-top: -24px;
+    margin-left: -10px;
+    
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+}
+
+.bg-navbar {
+  background-color: #456882;
+}
+.text-navbar {
+  color: #f9f3ef;
+}
+
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .justify-center {
-    justify-content: center;
+  justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
 }
 
 .align-center {
-    align-items: center;
+  align-items: center;
 }
 
 .f-col {
-    flex-direction: column;
+  flex-direction: column;
 }
 .spacing {
-    gap: 30px;
+  gap: 30px;
+}
+
+.align-right {
+  align-self: flex-end;
+  margin-right: 40px;
+}
+
+.card-actions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px
+}
+
+.card-content {
+    flex: 1 0 0;
+}
+
+.container-hero, .container-list {
+  width: 90%;
+  margin: 10px 0px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stripe-btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: white;
+  background-color: #456882;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+
+  :hover {
+    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(84 105 212) 0px 0px 0px 1px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+      rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  }
+}
+
+.danger {
+    background-color: firebrick;
+}
+
+
+.clean-form {
+    background-color: #f3e8e2;
+    padding: 20px;
+    border-radius: 0.5rem;
+    margin: 20px;
+    width: 50%;
+    box-shadow: 10px 5px 10px 2px rgb(0 0 0 / 20%);
+;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        text-align: left;
+        margin: 0px auto 0px auto;
+        width: 80%;
+
+        label {
+            font-weight: 600;
+        }
+    }
+
+    input[type='text'], textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input[type='submit'] {
+        width: 80%;
+        margin: 0px auto 0px auto;
+    }
+}
+
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+    margin: 40px auto 80px auto;
+    gap: 10px;
+
+    img {
+        align-self: flex-end;
+        flex: 1 1 0;
+        margin-left: auto;
+        border-radius: 0.25rem;
+    }
+
+    h1, div {
+        flex: 2 1 0;
+    }
+}
+
+
+@media (max-width: 800px) {
+    div > div.flex.justify-center.spacing {
+        flex-direction: column;
+    }
+
+    .card-list {
+
+        height: auto;
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 20px 40px -14px;
+        max-width: 300px;
+        padding: 24px 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        img {
+            width: calc(100% + 20px);
+            margin-top: -24px;
+            margin-left: -10px;
+            margin-right: -10px;
+
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+    }
 }
