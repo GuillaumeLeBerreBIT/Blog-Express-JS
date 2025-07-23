@@ -141,11 +141,10 @@
       background-color: firebrick;
   }
 
-  .card-text  , .card-header {
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .card-text, .card-header,
+  .blog-text, .blog-header{  
 
-    word-wrap: break-word;
+    white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
   }
