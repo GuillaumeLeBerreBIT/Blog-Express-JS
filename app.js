@@ -24,6 +24,10 @@ app.post("/upload", (req, res) => {
     console.log("Processing form");
     let blogPost;
 
+    if (!req.body.title || !req.body.story) {
+      return res.status(400).send("Missing required fields");
+    }
+
     let blogMatch = blogPostsMem.filter(b => String(b.id) === req.body['idBlog']);
     console.log(blogMatch);
     if (blogMatch.length === 0) {
@@ -68,7 +72,7 @@ app.post('/delete/:id', (req, res) => {
 
     blogPostsMem.splice(indexMatch, 1);   
 
-    res.render('index.ejs', {blogPostsMem: blogPostsMem});
+    res.render('index.ejs', {blogPostsMem: [...blogPostsMem].reverse()});
 })
 
 app.get('/blog/:id', (req, res) => {

@@ -13,7 +13,7 @@
                             <%= post.title %>
                         </h3>
                         <div class="card-text">
-                            <%= post.text %>
+                            <%= post.text.length > 200 ? post.text.substring(0, 200) + '...' : post.text %>
                         </div>
                         <a href="/blog/<%= post.id %>" class="stripe-btn">
                         See post >>
@@ -47,7 +47,7 @@
                             <%= element.title %>
                         </h3>
                         <div class="card-text">
-                            <%= element.text %>
+                            <%= element.text.length > 200 ? element.text.substring(0, 200) + '...' : element.text %>
                         </div>
                     </div>
                     <div class="card-actions">
